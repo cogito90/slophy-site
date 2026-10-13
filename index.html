@@ -153,12 +153,19 @@
     word-break: break-all;
   }
 
-  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 14px; color: var(--ink-soft); }
-  footer .wrap { display: grid; gap: 14px; }
-  .business-info { display: flex; flex-wrap: wrap; gap: 6px 24px; }
-  .business-info > div { display: flex; flex-wrap: wrap; gap: 0 6px; }
-  .business-info dt { font-weight: 600; }
+  footer { background: var(--ink); padding: 28px 0 32px; font-size: 13px; color: #B3B0E0; }
+  footer .wrap { display: grid; gap: 12px; }
+  .business-info p { display: flex; flex-wrap: wrap; gap: 2px 0; }
+  .business-info p + p { margin-top: 4px; }
+  .business-info .field { display: inline-block; }
+  .business-info .separator { margin-inline: 10px; color: #7773AA; }
   .business-info a { overflow-wrap: anywhere; }
+  .copyright { font-size: 12px; }
+
+  @media (max-width: 480px) {
+    .business-info p { flex-direction: column; gap: 4px; }
+    .business-info .separator { display: none; }
+  }
 
   @media (max-width: 860px) {
     .lede { margin-top: -10px; margin-left: 0; text-align: left; }
@@ -295,17 +302,20 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2026 SLOPHY. All rights reserved.</span>
-    <dl class="business-info" aria-label="Business information">
-      <div><dt>Business name</dt><dd>SLOPHY</dd></div>
-      <div><dt>Representative</dt><dd lang="ko">문선흠</dd></div>
-      <div><dt>Business start date</dt><dd><time datetime="2026-02-06">2026-02-06</time></dd></div>
-      <div><dt>Business type</dt><dd>Sole proprietorship · Republic of Korea</dd></div>
-      <div><dt>Email</dt><dd><a href="mailto:cogito@slophy.kr">cogito@slophy.kr</a></dd></div>
-      <!-- Business registration number: the owner can fill in and uncomment the row below when ready to publish.
-      <div><dt>Business registration number</dt><dd></dd></div>
-      -->
-    </dl>
+    <div class="business-info" lang="ko" aria-label="사업자 정보">
+      <p>
+        <span class="field">상호: SLOPHY<span class="separator" aria-hidden="true">|</span></span>
+        <!-- 사업자등록번호 입력 위치: 아래 [입력]을 실제 번호로 직접 교체하세요. -->
+        <span class="field">사업자등록번호: [입력]<span class="separator" aria-hidden="true">|</span></span>
+        <span class="field">대표: 문선흠</span>
+      </p>
+      <p>
+        <span class="field">대한민국 개인사업자<span class="separator" aria-hidden="true">|</span></span>
+        <span class="field">개업일: <time datetime="2026-02-06">2026.02.06</time><span class="separator" aria-hidden="true">|</span></span>
+        <span class="field">문의: <a href="mailto:cogito@slophy.kr">cogito@slophy.kr</a></span>
+      </p>
+    </div>
+    <span class="copyright">© 2026 SLOPHY. All rights reserved.</span>
   </div>
 </footer>
 
